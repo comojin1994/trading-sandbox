@@ -22,7 +22,7 @@ def hashkey(datas):
 if __name__ == '__main__':
     
     datas = {
-        "CANO": '46491254',
+        "CANO": '00000000',
         "ACNT_PRDT_CD": "01",
         "OVRS_EXCG_CD": "SHAA",
         "PDNO": "00001",
