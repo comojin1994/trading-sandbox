@@ -3,6 +3,7 @@ import getmac
 
 
 def get_current_price(excd: str, symb: str):
+    
     with open(f'key.yaml') as file:
         config = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -42,4 +43,5 @@ if __name__ == '__main__':
     print(f'거래대금      >>> {res["output"]["tamt"]}')
     print(f'전일종가      >>> {res["output"]["base"]}')
     print(f'전일거래량    >>> {res["output"]["pvol"]}')
+    print(f'성공실패여부  >>> {res["rt_cd"]}')
     
