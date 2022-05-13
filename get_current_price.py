@@ -29,19 +29,37 @@ def get_current_price(excd: str, symb: str):
 
 if __name__ == '__main__':
     from pprint import pprint
+    import time
+    from get_access_token import get_access_token
     
     res = get_current_price(excd='NAS', symb='TQQQ')
     
+    print()
     print(f'RESPONSE      >>> {res["msg1"]}')
     print(f'RESPONSE CODE >>> {res["msg_cd"]}')
-    print(f'종목코드      >>> {res["output"]["rsym"]}')
-    print(f'현재가        >>> {res["output"]["last"]}')
-    print(f'등락율        >>> {res["output"]["rate"]}')
-    print(f'대비기호      >>> {res["output"]["sign"]}')
-    print(f'대비          >>> {res["output"]["diff"]}')
-    print(f'거래량        >>> {res["output"]["tvol"]}')
-    print(f'거래대금      >>> {res["output"]["tamt"]}')
-    print(f'전일종가      >>> {res["output"]["base"]}')
-    print(f'전일거래량    >>> {res["output"]["pvol"]}')
     print(f'성공실패여부  >>> {res["rt_cd"]}')
+    print()
+    
+    if res['rt_cd'] != '0':
+        
+        if res['msg_cd'] == 'EGW00123':
+            # TOKEN 만료
+            print('Access token: \n')
+            print(get_access_token())
+        
+        elif res['msg_cd'] == 'EGW00201':
+            # 초당 거래건수 초과
+            time.sleep(1)
+        
+    else:
+        print(f'종목코드      >>> {res["output"]["rsym"]}')
+        print(f'현재가        >>> {res["output"]["last"]}')
+        print(f'등락율        >>> {res["output"]["rate"]}')
+        print(f'대비기호      >>> {res["output"]["sign"]}')
+        print(f'대비          >>> {res["output"]["diff"]}')
+        print(f'거래량        >>> {res["output"]["tvol"]}')
+        print(f'거래대금      >>> {res["output"]["tamt"]}')
+        print(f'전일종가      >>> {res["output"]["base"]}')
+        print(f'전일거래량    >>> {res["output"]["pvol"]}')
+        print()
     
