@@ -85,8 +85,8 @@ if __name__ == '__main__':
         print(f'상품명          >>> {res["output"][i]["prdt_name"]}')
         print(f'매수매도코드    >>> {res["output"][i]["sll_buy_dvsn_cd"]}')
         print(f'매수매도명      >>> {res["output"][i]["sll_buy_dvsn_cd_name"]}')
-        print(f'정정취소구분    >>> {res["output"][i]["rvse_cncl_dvsn"]}')
-        print(f'정정취소구분명  >>> {res["output"][i]["rvse_cncl_dvsn_name"]}')
+        print(f'정정취소구분    >>> {res["output"][i]["rvse_cncl_dvsn_cd"]}')
+        print(f'정정취소구분명  >>> {res["output"][i]["rvse_cncl_dvsn_cd_name"]}')
         print(f'거부사유        >>> {res["output"][i]["rjct_rson"]}')
         print(f'거부사유명      >>> {res["output"][i]["rjct_rson_name"]}')
         
